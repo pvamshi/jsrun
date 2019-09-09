@@ -15,21 +15,34 @@ class Gist extends Component {
     });
     const gists = await response.json();
     this.setState({ gists });
-    console.log(gists);
   }
 
   render() {
-    return this.state.gists.map(g =>
-      Object.keys(g.files)
-        .filter(filename => filename.endsWith(".js"))
-        .map((fileName, index) => (
-          <Button key={fileName + index} href="#" hoverIndicator>
-            <Box pad={{ horizontal: "medium", vertical: "small" }}>
-              <Text>{fileName}</Text>
-            </Box>
-          </Button>
-        ))
-    );
+    return this.state.gists
+      .filter(
+        g =>
+          Object.keys(g.files).length > 0 &&
+          Object.values(g.files).some(f => f.language === "JavaScript")
+      )
+      .map(gist => (
+        <Box pad="small" key={gist.id}>
+          <Text>{gist.description || Object.keys(gist.files)[0]}</Text>
+
+          {Object.values(gist.files)
+            .filter(file => file.language === "JavaScript")
+            .map(file => Object.assign({}, file, { id: gist.id }))
+            .map((file, index) => (
+              <Button
+                margin="small"
+                key={file.filename + index}
+                hoverIndicator
+                onClick={() => this.props.selectGist(file)}
+              >
+                <Text>{file.filename}</Text>
+              </Button>
+            ))}
+        </Box>
+      ));
   }
 }
 export default Gist;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Anchor, Image } from "grommet";
-import {Github} from "grommet-icons";
+import { Github } from "grommet-icons";
 
 class User extends Component {
   constructor(props) {
@@ -15,6 +15,16 @@ class User extends Component {
       "redirect_uri=http://localhost:3000";
   }
   async componentDidMount() {
+    const localUserStr = localStorage.getItem("user");
+    const localToken = localStorage.getItem('github');
+
+    if (localUserStr && localToken) {
+      const localUser = JSON.parse(localUserStr);
+      this.setState({ user: localUser });
+      this.props.updateToken(localToken);
+      return;
+    }
+
     const code =
       window.location.href.match(/\?code=(.*)/) &&
       window.location.href.match(/\?code=(.*)/)[1];
@@ -24,6 +34,7 @@ class User extends Component {
           "http://localhost:9999/authenticate/" + code
         );
         const { token } = await response.json();
+        localStorage.setItem("github", token);
         this.props.updateToken(token);
         const response2 = await fetch("https://api.github.com/user", {
           headers: { Authorization: `token ${token}` }
@@ -32,6 +43,7 @@ class User extends Component {
           throw new Error("Unauthorized");
         }
         const user = await response2.json();
+        localStorage.setItem("user", JSON.stringify(user));
 
         this.setState({ user });
       } catch (e) {}
@@ -64,7 +76,7 @@ class User extends Component {
     return this.state.user ? (
       <Image src={this.state.user.avatar_url} style={{ height: "40px" }} />
     ) : (
-      <Anchor href={this.url} label="Log in" icon={<Github/>}/>
+      <Anchor href={this.url} label="Log in" icon={<Github />} />
     );
   }
 }

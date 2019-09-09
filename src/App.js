@@ -11,7 +11,7 @@ const theme = {
     font: {
       family: "Roboto",
       size: "14px",
-      height: "20px"
+      height: "14px"
     }
   }
 };
@@ -20,9 +20,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      token: undefined
+      token: undefined,
+      selectedGist: undefined
     };
     this.updateToken = this.updateToken.bind(this);
+    this.selectGist = this.selectGist.bind(this);
   }
 
   // componentDidMount() {
@@ -51,7 +53,13 @@ class App extends Component {
 
   updateToken(token) {
     this.setState({
-      token
+      token,
+    });
+  }
+
+  selectGist(gist) {
+    this.setState({
+      selectedGist: gist
     });
   }
 
@@ -91,11 +99,11 @@ class App extends Component {
                 { type: "slideRight", size: "xlarge", duration: 150 }
               ]}
             >
-              <Gist token={this.state.token} />
+              <Gist token={this.state.token} selectGist={this.selectGist} />
             </Box>
           )}
           <Box gridArea="main">
-            <Editor />
+            <Editor token = {this.state.token} selectedGist={this.state.selectedGist} />
           </Box>
         </Grid>
       </Grommet>
