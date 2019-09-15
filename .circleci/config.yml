@@ -17,9 +17,7 @@ jobs:
     working_directory: ~/repo
 
     steps:
-      - run: git config user.email "pvamshi@gmail.com"
-      - run: git config user.name "Vamshi Krishna Pothuka"
-      - checkout
+     - checkout
 
       # Download and cache dependencies
       - restore_cache:
@@ -37,4 +35,6 @@ jobs:
 
       # run tests!
       #- run: yarn test
+      - run: git config user.email "pvamshi@gmail.com"
+      - run: git config user.name "Vamshi Krishna Pothuka"
       - run: yarn deploy
