@@ -4,9 +4,9 @@ import { Github } from "grommet-icons";
 import { AuthContext } from "util/auth";
 
 const URL =
-  "https://github.com/login/oauth/authorize?client_id=24fb42a0ececca0854b7&" +
+  "https://github.com/login/oauth/authorize?client_id=d35e67867e141005ae25&" +
   "scope=gist&" +
-  "redirect_uri=http://localhost:3000";
+  "redirect_uri=https://pvamshi.github.io/runjs";
 
 export const User = React.memo(function User() {
   const user = useContext(AuthContext);
