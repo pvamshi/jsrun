@@ -17,8 +17,8 @@ jobs:
     working_directory: ~/repo
 
     steps:
-      - git config user.email "pvamshi@gmail.com"
-      - git config user.name "Vamshi Krishna Pothuka"
+      - run: git config user.email "pvamshi@gmail.com"
+      - run: git config user.name "Vamshi Krishna Pothuka"
       - checkout
 
       # Download and cache dependencies
