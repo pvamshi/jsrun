@@ -16,9 +16,9 @@ export async function getUser() {
     if (code) {
       try {
         const response = await fetch(
-          "http://localhost:9999/authenticate/" + code
+          "https://pqsq24y7vb.execute-api.us-east-1.amazonaws.com/github/authenticate?code=" + code
         );
-        const { token } = await response.json();
+        const { access_token: token } = await response.json();
         const response2 = await fetch("https://api.github.com/user", {
           headers: { Authorization: `token ${token}` }
         });

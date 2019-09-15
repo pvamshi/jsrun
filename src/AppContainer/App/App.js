@@ -50,7 +50,6 @@ export const App = React.memo(function HomeLayout({
             ]}
           >
             {leftNav}
-            />
           </Box>
         )}
         <Box gridArea="main">{mainContent}</Box>
