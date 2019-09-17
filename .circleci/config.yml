@@ -38,6 +38,6 @@ jobs:
       - run: git config user.email "pvamshi@gmail.com"
       - run: git config user.name "Vamshi Krishna Pothuka"
       - add_ssh_keys
-        fingerprints: 
-          - "SHA256:9uIY3uSGLywiSf0lQ48iLP10/adYYkJ1QRVXRhWTT3Q"
+          fingerprints: 
+            - "SHA256:9uIY3uSGLywiSf0lQ48iLP10/adYYkJ1QRVXRhWTT3Q"
       - run: yarn deploy
