@@ -2,7 +2,7 @@
 
 ## What is this 
 
-Check the app at [https://jsrun.dev](https://jsrun.dev). The app lets user to run javascript code and preview the `console.log` output. It can be used for learning or as a scratchpad. 
+Check the app at [https://jsrun.dev](https://jsrun.dev). The app lets you to run javascript code and preview the `console.log` output. It can be used for learning or as a scratchpad. 
 
 ### Features
 
