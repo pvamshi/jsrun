@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React AppContainer](https://github.com/facebook/create-react-app).
+
 
 ## What is this 
 
@@ -16,6 +16,6 @@ Check the app at [https://jsrun.dev](https://jsrun.dev). The app lets user to ru
 * [ReactJS](https://reactjs.org/) (web framework)
 * No backend 😆
 * [BlueprintJs](https://blueprintjs.com/) (Components) 
-* [create-react-app](https://create-react-app.dev/) (project generating and build scripts) 
+* [Create React AppContainer](https://github.com/facebook/create-react-app) (project generating and build scripts) 
 * Github Oauth2 ( authentication) 
 * [Gists](https://gists.github.com) ( Store your scripts ) 
