@@ -6,7 +6,7 @@ import { AuthContext } from "util/auth";
 const URL =
   "https://github.com/login/oauth/authorize?client_id=d35e67867e141005ae25&" +
   "scope=gist&" +
-  "redirect_uri=https://pvamshi.github.io/runjs";
+  "redirect_uri=https://jsrun.dev";
 
 export const User = React.memo(function User() {
   const user = useContext(AuthContext);
