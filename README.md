@@ -5,9 +5,9 @@
 ### Features
 
 * **Transparency** : Entire source code is available in github
-* **You own your data** : All the scripts you save is stored in gists, you own them. They are not tied to jsrun anyway.
-* **Secure** : Authentication is by github. So, only github knows that you logged into this app and your credentials. 
-* **Single purpose**: The goal of this app is to do one thing and do it well. So it *not* a replacement for other good apps such as [https://codepen.io](https://codepen.io) or [https://jsbin.com](https://jsbin.com) or [https://jsfiddle.net](https://jsfiddle.net)
+* **You own your data** : All the scripts you save is stored in [Gists](https://gists.github.com), you own them. They are not tied to jsrun anyway.
+* **Secure** : Authentication is by github. So, only github knows who registered with this app and their credentials. 
+* **Single purpose**: The goal of this app is to do one thing and do it well, i.e run javascript code. It is not intended to run HTML or CSS. So it *not* a replacement for other good apps such as [https://codepen.io](https://codepen.io) or [https://jsbin.com](https://jsbin.com) or [https://jsfiddle.net](https://jsfiddle.net)
 
 ### Tech stack 
 
