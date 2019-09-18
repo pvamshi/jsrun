@@ -4,7 +4,7 @@ import { Github } from "grommet-icons";
 import { AuthContext } from "util/auth";
 
 const URL =
-  "https://github.com/login/oauth/authorize?client_id=d35e67867e141005ae25&" +
+  "https://github.com/login/oauth/authorize?client_id=5baaa09a82442f96fb0d&" +
   "scope=gist&" +
   "redirect_uri=https://jsrun.dev";
 
