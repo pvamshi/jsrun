@@ -4,8 +4,12 @@
   "private": true,
   "homepage": "https://jsrun.dev",
   "dependencies": {
+    "@blueprintjs/core": "^3.18.1",
+    "@blueprintjs/icons": "^3.10.0",
+    "emotion": "^10.0.17",
     "grommet": "^2.7.7",
     "grommet-icons": "^4.3.0",
+    "normalize.css": "^8.0.1",
     "react": "^16.9.0",
     "react-ace": "^7.0.4",
     "react-dom": "^16.9.0",

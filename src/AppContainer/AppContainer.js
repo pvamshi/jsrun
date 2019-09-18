@@ -5,8 +5,22 @@ import { AuthContext, getUser } from "../util/auth";
 import { App } from "./App";
 import { EditorContainer } from "../EditorContainer";
 
+const Aside = React.memo(function Aside({ className }) {
+  return (
+    <aside className={className}>
+      <GistListContainer />
+    </aside>
+  );
+});
+const Main = React.memo(function Main({ className }) {
+  return (
+    <main className={className}>
+      <EditorContainer />
+    </main>
+  );
+});
 export const AppContainer = React.memo(function AppContainer() {
-  const [selectedGist, setSelectedGist] = useState({});
+  // const [selectedGist, setSelectedGist] = useState({});
   const [user, setUser] = useState(null);
   useEffect(() => {
     async function fetchLoggedInUser() {
@@ -17,11 +31,7 @@ export const AppContainer = React.memo(function AppContainer() {
   }, []);
   return (
     <AuthContext.Provider value={user}>
-      <App showLeftNav={user && user.token}>
-        <User />
-        <GistListContainer selectGist={gist => setSelectedGist(gist)} />
-        <EditorContainer selectedGist={selectedGist} />
-      </App>
+      <App Aside={Aside} Main={Main} User={User}></App>
     </AuthContext.Provider>
   );
 });

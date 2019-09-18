@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "util/auth";
 import { Gist } from "./Gist";
 
-export const GistListContainer = React.memo(function GistListContainer({selectGist}) {
+export const GistListContainer = React.memo(function GistListContainer() {
   const [gists, setGists] = useState([]);
   const { token } = useContext(AuthContext) || {};
   useEffect(() => {
@@ -15,11 +15,14 @@ export const GistListContainer = React.memo(function GistListContainer({selectGi
     // noinspection JSIgnoredPromiseFromCall
     fetchGists();
   }, [token]);
-  return gists
-    .filter(
-      g =>
-        Object.keys(g.files).length > 0 &&
-        Object.values(g.files).some(f => f.language === "JavaScript")
-    )
-    .map(gist => <Gist key={gist.id} gist={gist} selectGist={selectGist} />);
+  return (
+    gists &&
+    gists
+      .filter(
+        g =>
+          Object.keys(g.files).length > 0 &&
+          Object.values(g.files).some(f => f.language === "JavaScript")
+      )
+      .map(gist => <Gist key={gist.id} gist={gist} selectGist={() => {}} />)
+  );
 });
