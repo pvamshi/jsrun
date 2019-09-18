@@ -2,7 +2,7 @@
   "name": "runjs",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://pvamshi.github.io/runjs",
+  "homepage": "https://jsrun.dev",
   "dependencies": {
     "grommet": "^2.7.7",
     "grommet-icons": "^4.3.0",
