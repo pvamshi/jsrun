@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import AceEditor from "react-ace";
 
 import "brace/mode/javascript";
-import "brace/theme/tomorrow";
+import "brace/theme/github";
 import { Button } from "grommet";
 import { Run } from "grommet-icons";
 
@@ -42,7 +42,7 @@ export class Editor extends Component {
       <div>
         <AceEditor
           mode="javascript"
-          theme="tomorrow"
+          theme="github"
           onChange={this.updateCode}
           name="js-editor"
           value={this.state.content}

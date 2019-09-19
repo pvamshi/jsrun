@@ -5,13 +5,10 @@ import { AuthContext, getUser } from "../util/auth";
 import { App } from "./App";
 import { EditorContainer } from "../EditorContainer";
 
-const Aside = React.memo(function Aside({ className }) {
-  return (
-    <aside className={className}>
-      <GistListContainer />
-    </aside>
-  );
-});
+import { FocusStyleManager } from "@blueprintjs/core";
+
+FocusStyleManager.onlyShowFocusOnTabs();
+
 const Main = React.memo(function Main({ className }) {
   return (
     <main className={className}>
@@ -31,7 +28,7 @@ export const AppContainer = React.memo(function AppContainer() {
   }, []);
   return (
     <AuthContext.Provider value={user}>
-      <App Aside={Aside} Main={Main} User={User}></App>
+      <App SidenavContents={GistListContainer} Main={Main} User={User} />
     </AuthContext.Provider>
   );
 });
