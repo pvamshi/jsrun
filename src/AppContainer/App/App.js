@@ -1,14 +1,14 @@
-import React, { Fragment, useContext } from "react";
-import "./App.css";
+import React, { Fragment, useContext } from 'react';
+import './App.css';
 import {
   Alignment,
   H3,
   Navbar,
   NavbarGroup,
   NavbarHeading
-} from "@blueprintjs/core";
-import { AuthContext } from "../../util/auth";
-import { Sidenav } from "./Sidenav";
+} from '@blueprintjs/core';
+import { AuthContext } from '../../util/auth';
+import { Sidenav } from './Sidenav';
 
 export const App = React.memo(function App({ SidenavContents, Main, User }) {
   const { token } = useContext(AuthContext) || {};
@@ -27,7 +27,7 @@ export const App = React.memo(function App({ SidenavContents, Main, User }) {
       </Navbar>
       <Sidenav
         headerHeight={50}
-        SidenavContents={token && <SidenavContents />}
+        SidenavContents={SidenavContents}
         MainContents={Main}
       />
     </Fragment>

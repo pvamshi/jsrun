@@ -1,21 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { User } from "./User";
-import { GistListContainer } from "../GistListContainer";
-import { AuthContext, getUser } from "../util/auth";
-import { App } from "./App";
-import { EditorContainer } from "../EditorContainer";
+import React, { useEffect, useState } from 'react';
+import { User } from './User';
+import { GistListContainer } from '../GistListContainer';
+import { AuthContext, getUser } from '../util/auth';
+import { App } from './App';
+import { EditorContainer } from '../EditorContainer';
 
-import { FocusStyleManager } from "@blueprintjs/core";
+import { useGistStore } from '../GistStore';
+import { FocusStyleManager } from '@blueprintjs/core';
+import { Provider } from 'outstated';
 
 FocusStyleManager.onlyShowFocusOnTabs();
 
-const Main = React.memo(function Main({ className }) {
-  return (
-    <main className={className}>
-      <EditorContainer />
-    </main>
-  );
-});
 export const AppContainer = React.memo(function AppContainer() {
   // const [selectedGist, setSelectedGist] = useState({});
   const [user, setUser] = useState(null);
@@ -28,7 +23,13 @@ export const AppContainer = React.memo(function AppContainer() {
   }, []);
   return (
     <AuthContext.Provider value={user}>
-      <App SidenavContents={GistListContainer} Main={Main} User={User} />
+      <Provider stores={[useGistStore]}>
+        <App
+          SidenavContents={GistListContainer}
+          Main={EditorContainer}
+          User={User}
+        />
+      </Provider>
     </AuthContext.Provider>
   );
 });

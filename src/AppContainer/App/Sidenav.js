@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
-import "./App.css";
-import { css } from "emotion";
-import { Button, Card, Elevation, Position, Tooltip } from "@blueprintjs/core";
-import { AuthContext } from "../../util/auth";
+import React, { useContext, useState } from 'react';
+import './App.css';
+import { css } from 'emotion';
+import { Button, Card, Elevation, Position, Tooltip } from '@blueprintjs/core';
+import { AuthContext } from '../../util/auth';
 
 export const Sidenav = React.memo(function Sidenav({
   SidenavContents,
@@ -29,7 +29,7 @@ export const Sidenav = React.memo(function Sidenav({
   const mainClass = css`
     flex-grow: 2;
     overflow: auto;
-    padding-left: 10px;
+    z-index: -10;
   `;
   const separatorClass = css`
     position: absolute;
@@ -50,7 +50,7 @@ export const Sidenav = React.memo(function Sidenav({
             right: ${showLeftNav} ? 0 : 40}px;
           `}
         >
-          {/*{SidenavContents && <SidenavContents />}*/}
+          {showLeftNav && <SidenavContents />}
         </div>
       </Card>
       <main className={mainClass}>
@@ -58,12 +58,12 @@ export const Sidenav = React.memo(function Sidenav({
       </main>
       <div className={separatorClass}>
         <Tooltip
-          content={showLeftNav ? "Hide (Cmd+[)" : "Show (Cmd+[)"}
+          content={showLeftNav ? 'Hide (Cmd+[)' : 'Show (Cmd+[)'}
           position={Position.RIGHT}
         >
           <Button
             onClick={() => setShowLeftNav(!showLeftNav)}
-            icon={"one-column"}
+            icon={'one-column'}
             minimal={true}
           />
         </Tooltip>
