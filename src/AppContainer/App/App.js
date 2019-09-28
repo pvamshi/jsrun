@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment } from 'react';
 import './App.css';
 import {
   Alignment,
@@ -7,11 +7,10 @@ import {
   NavbarGroup,
   NavbarHeading
 } from '@blueprintjs/core';
-import { AuthContext } from '../../util/auth';
 import { Sidenav } from './Sidenav';
 
 export const App = React.memo(function App({ SidenavContents, Main, User }) {
-  const { token } = useContext(AuthContext) || {};
+  // const { token } = useContext(AuthContext) || {};
 
   return (
     <Fragment>
